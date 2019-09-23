@@ -1,0 +1,33 @@
+@charset "utf-8";
+
+/* 조건이 스크린이어야한다, 16/800 = 50em, 800 px == 50em, 16/1024 = 64em, 1024px == 64em, em : 글자 수 */
+/* Mobile CSS */
+html {
+  font-size: 10px;
+}
+
+body {
+  background-color: lightpink;
+}
+
+/* Tablet, Laptop CSS */
+@media screen and (min-width: 50em) {
+  html {
+    font-size: 14px;
+  }
+
+  body {
+    background-color: skyblue;
+  }
+}
+
+/* Wide Screen CSS */
+@media screen and (min-width: 64em) {
+  html {
+    font-size: 20px;
+  }
+  
+  body {
+    background-color: lightsalmon;
+  }
+}
