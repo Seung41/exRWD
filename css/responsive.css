@@ -1,0 +1,33 @@
+@charset "utf-8";
+
+body {
+  display: flex;
+  flex-wrap: wrap; /* 줄바꿈 허용 */
+}
+
+.rwd-container {
+  margin: 0;
+  padding: 0;
+  flex-basis: 100%;
+}
+
+.rwd-iframe-container {
+  position: relative;
+  width: 100%;
+  height: 0 !important;
+  padding-top: 56.25%; /* (315/560)*100% 블럭잡고 보기 > 명령 팔레트 > 수식 평가, 동영상은 4:3,16:9 비율 */
+  background : yellow;
+}
+
+.rwd-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.rwd-img {
+  max-width: 100%;
+  height: auto;
+}
