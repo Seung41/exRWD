@@ -1,0 +1,93 @@
+@charset "utf-8";
+
+/* All Device, Mobile Device */
+
+body {
+  margin: 0;
+}
+
+.container {
+  background-color: lightgoldenrodyellow;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.header, .navigation, .main-content, .ad, .footer {
+  flex-basis: 100%;
+  height: 50px;
+}
+
+.header, .navigation, .ad {
+  order : -1;
+}
+
+.header {
+  background-color: lightsalmon;
+}
+
+.navigation {
+  background-color: lightpink;
+}
+.main-content {
+  background-color: lightslategray;
+  height: calc(100vh - 200px);
+}
+.ad {
+  background-color: lightgreen;
+}
+.footer {
+  background-color: skyblue;
+}
+
+/* Tablet, Laptop Device */
+
+@media screen and (min-width: 50em) {
+  .main-content, .ad {
+    height: calc(100vh - 150px);
+  }
+
+  .main-content {
+    flex-basis: 70%;
+  }
+
+  .ad {
+    flex-basis: 30%;
+  }
+
+}
+
+/* DesskTop & Wide Screen Device */
+@media screen and (min-width: 64em) {
+  
+  /* .navigation, .main-content, .ad {
+    order: 0;
+  } */
+
+  .header, .ad {
+    order: -2;
+  }
+  
+  .header {
+    height: 80px;
+  }
+
+  .navigation {
+    height: calc(100vh - 150px);
+    flex-basis: 30%;
+    order: 0;
+  }
+
+  .main-content {
+    flex-basis: 50%;
+    order: -1;
+  }
+
+  .ad {
+    flex-basis: 20%;
+  }
+  
+  .footer {
+    height: 70px;
+  }
+}
