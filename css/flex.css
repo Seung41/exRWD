@@ -60,6 +60,11 @@ body {
 /* DesskTop & Wide Screen Device */
 @media screen and (min-width: 64em) {
   
+  .container {
+    max-width: 1600px; /* 와이드 모니터에서는 레이아웃이 안맞을 수 있기 때문에 최대 모니터 크기 지정 */
+    margin: 0 auto;
+  }
+
   /* .navigation, .main-content, .ad {
     order: 0;
   } */
