@@ -4,3 +4,171 @@
 *, *::before, *::after { 
   font-family: 'Spoqa Han Sans', 'Sans-serif';
 }
+
+/* Reset CSS */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+fieldset {
+  padding: 0;
+  border: 0 none;
+}
+
+legend, .a11y-hidden {
+  background: tomato;
+  position: absolute;
+  /* top: -9999em; 브라우저 밖으로 숨김(스크린리더로 읽어줌, 그러나 리딩 중 화면이 위로 튀어 보여줌), dispaly: none;를 사용할 경우 존재 자체를 지워버림 */
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  /* clip: rect(0,0,0,0); 마스킹 처리 > clip-path로 변경됨 */
+  clip-path: polygon(0 0, 0 0, 0 0);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+/* All Style */
+body {
+  color: #181818;
+}
+
+.flexbox {
+  background: lightgray;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.container > *, .main-content > * {
+  /* flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: 100%; 
+  확대 비율 크기 */
+  flex : 0 1 100%;
+}
+
+.header {
+  background: skyblue;
+}
+
+.navigation {
+  background: lightpink;
+}
+
+.main-content {
+  background: lightsalmon;
+}
+
+.recommend-book {
+  background: lightyellow;
+}
+
+.news {
+  background: coral;
+}
+
+.board {
+  background: aquamarine;
+}
+
+.favorite-site {
+  background: gold;
+}
+
+.twitter {
+  background: teal;
+}
+
+.footer {
+  background: lightgreen;
+}
+
+/* logo */
+.logo {
+  margin: 0;
+}
+
+/* member */
+.member {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  justify-content: flex-end;
+}
+
+
+/* Mobile Style */
+@media screen and (max-width: 62.5em ){ /* 1000px / 16 = 62.5 */
+  .header {
+    background: #38302e;
+
+  }
+  .header > * {
+    width: 100%;
+    padding: 0 20px;
+  }
+  
+  .member {
+    order: -1;
+    background: #988574;
+    color: #fff;
+  }
+
+  .member a {
+    padding: 0.5em;
+    margin-left: 0.5em;
+    display: block;
+    /* box가 inline이라 안늘어남 disply:block 사용 */
+    margin-right: -0.5em; 
+
+  }
+}
+
+
+/* Desktop Style */
+@media screen and (min-width: 62.5em) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .main-content > * {
+    flex: 0 1 auto;
+  }
+
+  .navigation {
+    width: 100%;
+  }
+
+  .header, .main-content, .footer {
+    /* flex: 0 1 1000px; */
+    width: 1000px;
+  }
+
+  .recommend-book, .board {
+    width: calc((65px * 4) + (20px * 3));
+    /* calc((65px * 4) + (20px * 3)) 3:gutter line 수, gutter은 늘 줄-1 */
+  }
+
+  .news {
+    width: calc((65px * 8) + (20px * 7));
+    margin-left: 20px;
+    /* gutter 크기 : 20px */
+  }
+
+  .favorite-site {
+    width: calc((65px * 3) + (20px * 2));
+    margin-left: 20px;
+    /* gutter 크기 : 20px */
+  }
+
+  .twitter {
+    width: calc((65px * 5) + (20px * 4));
+    margin-left: 20px;
+    /* gutter 크기 : 20px */
+  }
+}
