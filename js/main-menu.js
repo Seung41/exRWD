@@ -1,16 +1,18 @@
 var viewport = window.matchMedia('(max-width:999px)');
 // matchMedia 는 모던 브라우저에서만 사용 가능, 구형에선 사용 불가능
+
 $(window).resize(function(){
   location.reload();
   // 윈도우가 리사이즈 될때마다 리로드해라, 성능 문제가 있어서 모바일에서만 사용 권장
 });
-if(viewport.matches) {
-  var nav = $('.navigation');
-  var btn = $('.btn-menubar');
-  var menu = $('.menu');
-  var items = $('.menu-item');
-  var lists = $('.menu-list');
 
+var items = $('.menu-item');
+var nav = $('.navigation');
+var btn = $('.btn-menubar');
+var menu = $('.menu');
+var lists = $('.menu-list');
+
+if(viewport.matches) {
   items.addClass('icon-plus');
   items.attr('role', 'button');
   items.attr('aria-haspopup', 'true'); // 모바일에서만 사용
@@ -47,5 +49,11 @@ if(viewport.matches) {
   });
   menu.on('focusout', function(){
     nav.removeClass('is-act');
+  });
+} else {
+  items.attr('role', 'presentation');
+  items.attr('tabindex', '-1');
+  items.on('click', function(e){
+      e.preventDefault();
   });
 }
