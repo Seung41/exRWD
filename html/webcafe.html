@@ -8,15 +8,15 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
     />
-    <link rel="stylesheet" href="./css/webcafe.css" />
-    <script src="./js/jquery.min.js" defer></script>
-    <script src="./js/main-menu.js" defer></script>
+    <link rel="stylesheet" href="../css/webcafe.css" />
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/main-menu.js" defer></script>
   </head>
   <body>
     <div class="container flexbox">
       <header class="header flexbox">
         <h1 class="logo">
-          <a href="#"><img src="images/rwd-logo.png" alt="Web Cafe"/></a>
+          <a href="#"><img src="../images/rwd-logo.png" alt="Web Cafe"/></a>
         </h1>
         <ul class="member flexbox">
           <li><a href="#">로그인</a></li>
@@ -92,11 +92,6 @@
         </ul>
       </nav>
       <main class="main-content flexbox">
-        <section class="recommend-book">추천서적</section>
-        <section class="news">새소식</section>
-        <section class="board">게시판</section>
-        <section class="favorite-site">인기 사이트</section>
-        <article class="twitter">트위터</article>
         <section class="recommend-book">
           <h2 class="recommend-book-heading main-section-heading">
             추천 서적
@@ -106,8 +101,8 @@
           </h2>
           <figure class="recommend-book-cover">
             <img
-              src="images/book_rwd.jpg"
-              class="rwd-img"
+              src="../images/book_rwd.jpg"
+              class="responsive"
               alt=""
               aria-labelledby="cover-caption"
             />
@@ -134,10 +129,10 @@
             새소식 <span class="en-heading">WebCafe News</span>
           </h2>
           <figure class="news-container">
-            <video class="news-video" poster="media/poster.jpg" controls>
-              <source src="media/stories.mp4" type="video/mp4" />
+            <video class="news-video responsive" poster="media/poster.jpg" controls>
+              <source src="../media/stories.mp4" type="video/mp4" />
               <track
-                src="media/stories-en.vtt"
+                src="../media/stories-en.vtt"
                 kind="captions"
                 srclang="en"
                 label="English Caption"
@@ -232,7 +227,7 @@
           </dl>
           <figure class="twitter-profile">
             <img
-              src="images/seulbinim.jpg"
+              src="../images/seulbinim.jpg"
               alt=""
               class="twitter-thumbnail responsive"
             />

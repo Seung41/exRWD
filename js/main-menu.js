@@ -1,10 +1,10 @@
 var viewport = window.matchMedia('(max-width:999px)');
 // matchMedia 는 모던 브라우저에서만 사용 가능, 구형에선 사용 불가능
 
-$(window).resize(function(){
-  location.reload();
-  // 윈도우가 리사이즈 될때마다 리로드해라, 성능 문제가 있어서 모바일에서만 사용 권장
-});
+// $(window).resize(function(){
+//   location.reload();
+//   // 윈도우가 리사이즈 될때마다 리로드해라, 성능 문제가 있어서 모바일에서만 사용 권장
+// });
 
 var items = $('.menu-item');
 var nav = $('.navigation');
