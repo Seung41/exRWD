@@ -53,21 +53,19 @@ body {
   flex-direction: row;
 }
 
-.container > *, .main-content > * {
+/* .container > *, .main-content > * {
   /* flex-grow: 0;
   flex-shrink: 1;
   flex-basis: 100%; 
   확대 비율 크기 */
   /* flex: 0 1 100%; */
-  width: 100%;
-}
-
-.twitter {
-  background: teal;
-}
+  /* width: 100%; */
+  
+} */
 
 .footer {
-  background: lightgreen;
+  background: #988574;
+  color: #fff
 }
 
 /* logo */
@@ -137,6 +135,7 @@ body {
 
 .main-content [class$="summary"]{
   line-height: 1.5;
+  text-align: justify; /* 양쪽정렬 */
 }
 
 /* Recommend Book */
@@ -252,9 +251,56 @@ body {
   content: "4";
 } */
 
+/* twitter */
+.twitter {
+  position: relative;
+  padding-right: 20%;
+}
+
+.twitter-user-info {
+  display: flex;
+}
+
+.twitter-user-name, .twitter-user-id {
+  margin-left: 0;
+}
+
+.twitter-profile {
+  width: 20%;
+  margin-left: 0;
+  margin-right: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-align: right;
+}
+
+.twitter-thumbnail {
+  border: 1px solid #38302e;
+  padding: 0.5em;
+  border-radius: 50%;
+}
+
+/* .twitter-date {
+  display: block;
+  text-align: right;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+} */
+
+.address {
+  font-style: normal;
+  margin-bottom: 0.5em;
+  font-style: 0.85em;
+}
 
 /* Mobile Style */
 @media screen and (max-width: 62.5em) {
+  .header, .navigation, .main-content, .footer {
+    width: 100%;
+  }
+
   /* 1000px / 16 = 62.5 */
   .header {
     background: #38302e;
@@ -378,7 +424,7 @@ body {
   /* main menu */
   .menu {
     /* color: transparent; 글자 투명*/
-    opacity: 0;
+    /* opacity: 0;
     transform: translateX(-100%);
     list-style: none;
     background: rgba(0, 0, 0, 0.85);
@@ -390,12 +436,28 @@ body {
     width: 70vw;
     height: 100vh;
     padding: 1.5em 1em 1.5em 40px;
-    transition: all 600ms;
+    transition: all 600ms; */
+    transform: translateX(-100%);
+    list-style: none;
+    background: rgba(0,0,0,0.85);
+    color: rgba(255,255,255,0);
+    margin: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0 !important;
+    height: 100vh;
+    padding: 1.5em 1em 1.5em 40px;
+    transition: all 200ms;
+    overflow: hidden;
   }
 
   .is-act .menu {
+    /* transform: none;
+    opacity: 1; */
+    color: rgba(255,255,255,1);
     transform: none;
-    opacity: 1;
+    width: 70vw !important;
   }
 
   .menu-list {
@@ -413,6 +475,33 @@ body {
 
   .sub-menu li {
     margin: 0.5em 0;
+  }
+
+  .main-content {
+    padding: 0 20px;
+  }
+
+  .recommend-book, .news, .board, .favorite-site, .twitter {
+    width: 100%;
+  }
+
+  .twitter {
+    margin-bottom: 1em;
+  }
+
+  /* slogan */
+  .slogan {
+    padding: 0 20px;
+  }
+
+  /* footer */
+  .footer {
+    padding: 2em 20px;
+  }
+  
+  .address span {
+    display: block;
+    line-height: 2em;
   }
 }
 
@@ -495,7 +584,7 @@ body {
     color: #fff;
   }
 
-  .header, .menu, .main-content, .footer{
+  .header, .menu, .main-content, .slogan{
     /* flex: 0 1 1000px; */
     width: 1000px;
     /* margin: 0 auto; */
@@ -579,4 +668,54 @@ body {
   .sub-menu a:hover, .sub-menu a:focus {
     color : #ff0
   }
+
+  /* Main Content */
+  .main-content {
+    margin-bottom: 1em;
+  }
+
+  /* twitter */
+  .twitter {
+    /* width: 405px; */
+    padding-right: 80px;
+  }
+
+  .slogan {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  /* slogan */
+  .slogan-heading {
+    margin: 0;
+    width: 110px;
+    height: 83px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: -25px;
+  }
+
+  .slogan-heading::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url(../images/coffee.png) no-repeat;
+  }
+
+  .slogan-content {
+    width: calc(100% - 250px);
+  }
+
+  /* footer */
+  .footer {
+    width: 100%;
+    padding: 2em 0;
+    text-align: center;
+  }
+
 }

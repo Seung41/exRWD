@@ -11,6 +11,7 @@ var nav = $('.navigation');
 var btn = $('.btn-menubar');
 var menu = $('.menu');
 var lists = $('.menu-list');
+var slogan = $('.slogan-heading');
 
 if(viewport.matches) {
   items.addClass('icon-plus');
@@ -18,6 +19,7 @@ if(viewport.matches) {
   items.attr('aria-haspopup', 'true'); // 모바일에서만 사용
   items.attr('aria-pressed', 'false'); // 모바일에서만 사용
   items.attr('aria-expanded', 'false'); // 접혀진 상태
+  slogan.addClass('a11y-hidden');
 
   btn.on('click', function(e){
     e.preventDefault();
