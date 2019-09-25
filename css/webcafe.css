@@ -1,12 +1,17 @@
 @charset "utf-8";
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
+@import url(./fonts.css);
 
-*, *::before, *::after { 
-  font-family: 'Spoqa Han Sans', 'Sans-serif';
+*,
+*::before,
+*::after {
+  font-family: "Spoqa Han Sans", "Sans-serif";
 }
 
 /* Reset CSS */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -15,7 +20,8 @@ fieldset {
   border: 0 none;
 }
 
-legend, .a11y-hidden {
+legend,
+.a11y-hidden {
   background: tomato;
   position: absolute;
   /* top: -9999em; 브라우저 밖으로 숨김(스크린리더로 읽어줌, 그러나 리딩 중 화면이 위로 튀어 보여줌), dispaly: none;를 사용할 경우 존재 자체를 지워버림 */
@@ -42,12 +48,13 @@ body {
   flex-direction: row;
 }
 
-.container > *, .main-content > * {
+.container > *,
+.main-content > * {
   /* flex-grow: 0;
   flex-shrink: 1;
   flex-basis: 100%; 
   확대 비율 크기 */
-  flex : 0 1 100%;
+  flex: 0 1 100%;
 }
 
 .navigation {
@@ -95,22 +102,24 @@ body {
   justify-content: flex-end;
 }
 
-
 /* Mobile Style */
-@media screen and (max-width: 62.5em ){ /* 1000px / 16 = 62.5 */
+@media screen and (max-width: 62.5em) {
+  /* 1000px / 16 = 62.5 */
   .header {
     background: #38302e;
     padding-bottom: 1.5em;
   }
   .header > * {
     width: 100%;
-    padding: 0 20px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 
   .logo {
-    padding: 0.5em 0;
+    padding: 0.5em;
+    padding-bottom: 0.5em;
   }
-  
+
   .member {
     order: -1;
     background: #988574;
@@ -122,8 +131,7 @@ body {
     margin-left: 0.5em;
     display: block;
     /* box가 inline이라 안늘어남 disply:block 사용 */
-    margin-right: -0.5em; 
-
+    margin-right: -0.5em;
   }
 
   .search input[type="search"] {
@@ -135,7 +143,7 @@ body {
     margin-right: 0.5em;
   }
 
-  .btn-search {   
+  .btn-search {
     background: transparent;
     border: 0;
     padding: 0;
@@ -152,13 +160,105 @@ body {
     width: 100%;
     height: 100%;
     /* display: block; ::before, ::after의 경우 display : inline이라 w,h 동작 X */
-    position: absolute; 
+    position: absolute;
     /* absoulte -> display : block; */
     top: 0;
-    left: 0;    
+    left: 0;
+  }
+
+  /* mobile main menu button */
+  .is-act {
+  }
+
+  .btn-menubar {
+    cursor: pointer;
+    background: transparent;
+    position: absolute;
+    top: 3.5em;
+    right: 20px;
+    border: 0 none;
+    padding: 0;
+    width: 2em;
+    height: 2em;
+    overflow: hidden;
+  }
+
+  .menubar {
+    cursor: pointer;
+    background: #fff;
+    width: 100%;
+    height: 25%;
+    display: block;
+    border-radius: 1em;
+    position: absolute;
+    left: 0;
+    transition: all 200ms;
+    /* transition-property: top, transform;
+  transition-duration: 2s, 2s;
+  transition-delay: 0s, 2s; */
+  }
+
+  .menubar-top {
+    top: 0;
+  }
+
+  .menubar-middle {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .menubar-bottom {
+    top: 100%;
+    transform: translateY(-100%);
+  }
+
+  .is-act .menubar-top {
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+  }
+
+  .is-act .menubar-middle {
+    transform: translate(-100%, -50%);
+  }
+
+  .is-act .menubar-bottom {
+    top: 50%;
+    transform: translateY(-50%) rotate(-45deg);
+  }
+
+  /* main menu */
+  .menu {
+    transform: translateX(-100%);
+    list-style: none;
+    background: rgba(0, 0, 0, 0.85);
+    color: #fff;
+    margin: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 70vw;
+    height: 100vh;
+    padding: 1.5em 1em 1.5em 40px;
+    transition: all 600ms;
+  }
+
+  .is-act .menu {
+    transform: none;
+  }
+
+  .menu-list {
+    margin: 1em 0;
+  }
+
+  .sub-menu {
+    list-style: disc;
+    display: none;
+  }
+
+  .sub-menu li {
+    margin: 0.5em 0;
   }
 }
-
 
 /* Desktop Style */
 @media screen and (min-width: 62.5em) {
@@ -168,9 +268,9 @@ body {
   }
 
   .header {
-    /* background: red;
-    height: 200px; */
     position: relative;
+    flex-basis: auto;
+    padding: 1.5em 0;
   }
 
   .main-content > * {
@@ -185,7 +285,7 @@ body {
   }
 
   .logo * {
-    display: block; 
+    display: block;
   }
 
   .member {
@@ -196,19 +296,27 @@ body {
     margin: 0.5em 0;
   }
 
-  .member li:nth-child(n+2) {
+  /* .member li:nth-child(n+2) {
     border-left: 2px dotted #181818;  
+  } */
+
+  .member li:nth-child(n + 2)::before {
+    /* 첫번째 빼고 나머지 li 가짜 */
+    content: "|";
+    display: inline-block;
+    margin-left: 0.5em;
   }
 
   .member a {
     padding: 0 0.5em;
-    display: block;
+    display: inline-block;
     margin-right: -0.5em;
   }
 
   .search {
     width: 100%;
     text-align: right;
+    margin-top: 1em;
   }
 
   .search * {
@@ -238,11 +346,13 @@ body {
   .header, .main-content, .footer {
     /* flex: 0 1 1000px; */
     width: 1000px;
+    /* margin: 0 auto; */
   }
 
   .recommend-book, .board {
     width: calc((65px * 4) + (20px * 3));
     /* calc((65px * 4) + (20px * 3)) 3:gutter line 수, gutter은 늘 줄-1 */
+    /* width: 320px; */
   }
 
   .news {
@@ -261,5 +371,10 @@ body {
     width: calc((65px * 5) + (20px * 4));
     margin-left: 20px;
     /* gutter 크기 : 20px */
+  }
+
+  /* main menu */
+  .btn-menubar {
+    display: none;
   }
 }
